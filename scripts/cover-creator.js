@@ -72,7 +72,7 @@ function createCover() {
                         ctx.fillText(headline, 40, 530);
                     };
                     let logoFormat = pngLogos.includes(magazine) ? ".png" : ".svg"
-                    logo.src = "static/imgs/logos/" + magazine + logoFormat;
+                    logo.src = "static/imgs/logos/" + magazine.toLowerCase() + logoFormat;
                 };
                 img.src = url;
             }
