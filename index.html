@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html> 
+
+<head>
+    <title>FAMOU$</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/generic_classes.css">
+    <link rel="stylesheet" href="static/css/magazines.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scripts/jquery.transit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+    <script src="scripts/cover-creator.js" type="text/javascript" defer></script>
+    <meta charset="utf-8"/>
+    <style>
+        .home-page{
+            background-image: url("https://www.jogofamous.com/assets/images/bg-sm.png");
+        }
+    </style>
+</head>
+
+<body onload="createCover();">
+    <div class="container flexbox align-start">
+        <main class="magazine-cover flexbox main-content">
+            <section class="subsection mag-infoForm">
+                <div class="flexbox magazine-selection align-start">
+                        <div class="custom-select flexbox gap-1r align-start">
+                            <label class="black title field-label">Magazine:</label>
+                            <select name="select" id="magazine-select" class="categories-select">
+                                <option value="TIME">TIME</option>
+                                <option value="Forbes">Forbes</option>
+                                <option value="Variety">Variety</option>
+                                <option value="Harper's Bazaar">Harper's Bazaar</option>
+                                <option value="Elle">Elle</option>
+                                <option value="People">People</option>
+                                <option value="Vanity Fair" selected>Vanity Fair</option>
+                                <option value="Billboard">Billboard</option>
+                                <option value="V">V</option>
+                                <option value="Cosmopolitan">Cosmopolitan</option>
+                                <option value="Esquire">Esquire</option>
+                                <option value="CARAS">CARAS</option>
+                                <option value="Marie Claire">Marie Claire</option>
+                                <option value="NME">NME</option>
+                                <option value="Allure">Allure</option>
+                                <option value="Entertainment Weekly">Entertainment Weekly</option>
+                                <option value="Men's Health">Men's Health</option>
+                                <option value="W">W</option>
+                                <option value="Women's Health">Women's Health</option>
+                                <option value="ViVi">ViVi</option>
+                                <option value="L'Officiel">L'Officiel</option>
+                                <option value="GQ">GQ</option>
+                                <option value="Glamour">Glamour</option>
+                                <option value="InStyle">InStyle</option>
+                                <option value="Nylon">Nylon</option>
+                                <option value="OUT">OUT</option>
+                                <option value="COSAS">COSAS</option>
+                                <option value="Quién">Quién</option>
+                                <option value="Gay Times">Gay Times</option>
+                                <option value="FUSE">FUSE</option>
+                                <option value="Quem">Quem</option>
+                                <option value="Interview">Interview</option>
+                                <option value="Complex">Complex</option>
+                                <option value="LARME">LARME</option>
+                                <option value="Ray Magazine">Ray Magazine</option>
+                                <option value="Veja Rio">Veja Rio</option>
+                                <option value="Genevieve">Genevieve</option>
+                                <option value="iHola!">iHola!</option>
+                                <option value="Contigo!">Contigo!</option>
+                                <option value="Claudia">Claudia</option>
+                                <option value="Para Ti">Para Ti</option>
+                                <option value="Flaunt">Flaunt</option>
+                                <option value="Paper">Paper</option>
+                                <option value="Capricho">Capricho</option>
+                                <option value="Weekly Young">Weekly Young</option>
+                                <option value="Clash">Clash</option>
+                                <option value="Dork">Dork</option>
+                                <option value="Glitter">Glitter</option>
+                                <option value="Pop Magazine">Pop Magazine</option>
+                                <option value="Vanguard Allure">Vanguard Allure</option>
+                                <option value="High Cut">High Cut</option>
+                                <option value="City Press">City Press</option>
+                                <option value="Teen People">Teen People</option>
+                                <option value="The Sun">The Sun</option>
+                                <option value="MAXIM">MAXIM</option>
+                                <option value="OK!">OK!</option>
+                                <option value="Atrevida">Atrevida</option>
+                                <option value="Us Weekly">Us Weekly</option>
+                                <option value="ERES">ERES</option>
+                                <option value="inTouch">inTouch</option>
+                            </select>
+                        </div>
+                </div>
+                <form action="#" method="post" class="flexbox column align-start gap-1r">
+                    <div class="artist-name flexbox gap-1r align-start">
+                        <label class="black title field-label">Artist:</label>
+                        <input name="artist" id="artist" placeholder="Britney Spears" type="text" class="field-input" maxlength="21"/>
+                    </div>
+                    <div class="artist-pic flexbox gap-1r align-start">
+                        <label class="black title field-label">Cover photo URL:</label>
+                        <input name="url" id="url" placeholder="URL" type="text" class="field-input"/>
+                    </div>
+                    <div class="headline-txt flexbox gap-1r align-start">
+                        <label class="black title field-label">Main headline:</label>
+                        <input name="headline" id="headline" placeholder="Novo álbum!" type="text" class="field-input" maxlength="32"/>
+                    </div>
+                    <div class="headline-txt flexbox gap-1r align-start">
+                        <label class="black title field-label">Logo color:</label>
+                        <input name="logoColor" id="logoColor" placeholder="#ffffff" value="#ffffff" type="text" class="field-input color-field" data-coloris/>
+                    </div>
+                    <!-- <div class="flexbox align-start"><input type="submit" value="Salvar" id="mag-submit" class="flexbox button work-button" /></div> -->
+                </form>
+            </section>
+            <section class="subsection mag-cover-wrapper">
+                <div class="mag-cover-img flexbox align-start">
+                    <!-- <div class="mag-cover flexbox align-start">
+                        <img src="https://madelaine-petsch.com/albums/userpics/10005/4~1.jpeg"/>
+                    </div> -->
+                    <canvas id="mag-cover" style="display: block;">
+                        P
+                    </canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/promo-bg-color.js" type="text/javascript" defer></script>
+    <script>
+        Coloris({
+            alpha: false,
+            a11y: {
+                theme: 'polaroid',
+                defaultColor: '#ffffff',
+                marker: 'Saturation: {s}. Brightness: {v}.',
+                margin: 2,
+                rtl: true,
+                hueSlider: 'Hue slider',
+                format: 'hex',
+                instruction: 'Saturation and brightness selector. Use up, down, left and right arrow keys to select.'
+            }
+        });
+    </script>
+    <script>
+        $("input").on("keyup",function() {
+            var maxLength = $(this).attr("maxlength");
+            if(maxLength == $(this).val().length) {
+                alert("You can't write more than " + maxLength +" chacters")
+            }
+        })
+    </script>
+</body>
+
+</html>

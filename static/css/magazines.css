@@ -1,0 +1,97 @@
+
+.magazine-cover{
+    flex-direction: row;
+    align-items: center;
+    overflow: scroll;
+}
+
+.magazine-cover .field-input{
+    padding: 0.5rem;
+}
+
+.magazine-cover .custom-select{
+    width: auto;
+}
+
+.magazine-cover .field-label{
+    min-width: fit-content;
+    width: auto;
+}
+
+.magazine-cover .status-select, .magazine-cover .type-select{
+    border: 1px solid var(--Purple);
+    padding: 1rem;
+}
+
+.magazine-cover .cat-list-items {
+    overflow: scroll;
+    height: 10rem;
+}
+
+.magazine-cover .mag-infoForm > *{
+    align-items: center;
+}
+
+.clr-field input, .magazine-cover .clr-field .field-input{
+    padding-left: 2.2rem;
+}
+
+.clr-field input {
+    margin: 0;
+    direction: ltr;
+}
+
+.clr-field button{
+    width: 22px;
+    height: 22px;
+    left: 0.5rem;
+    right: auto;
+    border-radius: 6px;
+}
+
+.magazine-cover .mag-cover-img {
+    width: 500px;
+    height: 625px;
+    overflow: hidden;
+}
+
+.magazine-cover .mag-cover-img .mag-cover{
+    width: 100%;
+    height: 100%;
+}
+
+.magazine-cover .mag-cover-img img{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+/* .magazine-cover .color-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.magazine-cover .color-field::-webkit-color-swatch {
+  border-radius: 10px;
+  border: none;
+  margin: 0;
+}
+
+.magazine-cover .color-field::-moz-color-swatch {
+  border-radius: 10px;
+  border: none;
+} */
+
+@media screen and (max-width: 960px) {
+    .magazine-cover{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

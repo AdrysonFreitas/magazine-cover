@@ -1,0 +1,99 @@
+:root{
+    --metacritic-positive: #66CC33;
+    --metacritic-mixed: #FFCC33;
+    --metacritic-negative: #FF0000;
+    --metacritic-neutral: #666666;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--Purple), transparent 30%);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Dark-gray); 
+}
+
+.no-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.grid{
+    display: grid;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.lighter{
+    font-weight: 300;
+}
+
+.medium{
+    font-weight: 500;
+}
+
+.stronger{
+    font-weight: 600;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.black{
+    font-weight: 800;
+}
+
+.extra-black{
+    font-weight: 900;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.inactive{
+    display: none;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.b-radius-10{
+    border-radius: 10px;
+}
+
+.align-start{
+    align-items: flex-start;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.gap-1r{
+    gap: 1rem;
+}
+
+.gap-1rv{
+    gap: 1rem 0;
+}
+
+.gap-1rh{
+    gap: 0 1rem;
+}
+
+.p-1r{
+    padding: 1rem;
+}
