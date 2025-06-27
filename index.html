@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="static/css/base.css">
     <link rel="stylesheet" href="static/css/generic_classes.css">
     <link rel="stylesheet" href="static/css/magazines.css">
+    <link rel="stylesheet" href="static/css/magazines-logos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="scripts/jquery.transit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+    <script src="scripts/html2canvas.js"></script>
     <script src="scripts/cover-creator.js" type="text/javascript" defer></script>
     <meta charset="utf-8"/>
     <style>
@@ -31,13 +33,13 @@
                         <div class="custom-select flexbox gap-1r align-start">
                             <label class="black title field-label">Magazine:</label>
                             <select name="select" id="magazine-select" class="categories-select">
-                                <option value="TIME">TIME</option>
+                                <option value="TIME" selected>TIME</option>
                                 <option value="Forbes">Forbes</option>
                                 <option value="Variety">Variety</option>
                                 <option value="Harper's Bazaar">Harper's Bazaar</option>
                                 <option value="Elle">Elle</option>
                                 <option value="People">People</option>
-                                <option value="Vanity Fair" selected>Vanity Fair</option>
+                                <option value="Vanity Fair">Vanity Fair</option>
                                 <option value="Billboard">Billboard</option>
                                 <option value="V">V</option>
                                 <option value="Cosmopolitan">Cosmopolitan</option>
@@ -97,17 +99,28 @@
                 <form action="#" method="post" class="flexbox column align-start gap-1r">
                     <div class="artist-name flexbox gap-1r align-start">
                         <label class="black title field-label">Artist:</label>
-                        <input name="artist" id="artist" placeholder="Britney Spears" type="text" class="field-input" maxlength="21"/>
+                        <input name="artist" id="artist" placeholder="Britney Spears" type="text" class="field-input" maxlength="50"/>
                     </div>
-                    <div class="artist-pic flexbox gap-1r align-start">
-                        <label class="black title field-label">Cover photo URL:</label>
-                        <input name="url" id="url" placeholder="URL" type="text" class="field-input"/>
+                    <div class="artist-color flexbox gap-1r align-start">
+                        <label class="black title field-label">Artist color:</label>
+                        <input name="artistColor" id="artistColor" placeholder="#ffffff" value="#ffffff" type="text" class="field-input color-field" data-coloris/>
+                    </div>
+                    <div class="artist-pic flexbox column">
+                        <span class="flexbox gap-1r ">
+                            <label class="black title field-label">Cover photo URL:</label>
+                            <input name="url" id="url" placeholder="URL" type="text" class="field-input"/>
+                        </span>
+                        <!-- <span class="desc subtitle small">Upload the image on imgur, postimages or other image provider.</span> -->
                     </div>
                     <div class="headline-txt flexbox gap-1r align-start">
                         <label class="black title field-label">Main headline:</label>
-                        <input name="headline" id="headline" placeholder="Novo álbum!" type="text" class="field-input" maxlength="32"/>
+                        <input name="headline" id="headline" placeholder="Novo álbum!" type="text" class="field-input" maxlength="50"/>
                     </div>
-                    <div class="headline-txt flexbox gap-1r align-start">
+                    <div class="headline-color flexbox gap-1r align-start">
+                        <label class="black title field-label">Headline color:</label>
+                        <input name="headlineColor" id="headlineColor" placeholder="#ffffff" value="#ffffff" type="text" class="field-input color-field" data-coloris/>
+                    </div>
+                    <div class="logo-color flexbox gap-1r align-start">
                         <label class="black title field-label">Logo color:</label>
                         <input name="logoColor" id="logoColor" placeholder="#ffffff" value="#ffffff" type="text" class="field-input color-field" data-coloris/>
                     </div>
@@ -115,19 +128,24 @@
                 </form>
             </section>
             <section class="subsection mag-cover-wrapper">
-                <div class="mag-cover-img flexbox align-start">
-                    <!-- <div class="mag-cover flexbox align-start">
-                        <img src="https://madelaine-petsch.com/albums/userpics/10005/4~1.jpeg"/>
-                    </div> -->
-                    <canvas id="mag-cover" style="display: block;">
-                        P
-                    </canvas>
+                <div class="mag-cover flexbox align-start" id="cover-type1">
+                    <div class="mag-cover-img flexbox align-start">
+                        <img/>
+                    </div>
+                    <div class="mag-cover-logo flexbox column align-start">
+                        <object type="image/svg+xml"></object>
+                    </div>
+                    <div class="mag-cover-text flexbox column align-start">
+                        <div class="text-artist">
+                        </div>
+                        <div class="text-headline">
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <script src="scripts/promo-bg-color.js" type="text/javascript" defer></script>
     <script>
         Coloris({
             alpha: false,
@@ -143,13 +161,19 @@
             }
         });
     </script>
-    <script>
+    <script defer>
         $("input").on("keyup",function() {
             var maxLength = $(this).attr("maxlength");
             if(maxLength == $(this).val().length) {
                 alert("You can't write more than " + maxLength +" chacters")
             }
         })
+        
+        // let coverDiv = document.querySelector("#cover-type1");
+        // html2canvas(coverDiv, {allowTaint: true, useCORS: true}).then(function(canvas) {
+        //     document.body.appendChild(canvas);
+        // });
+            
     </script>
 </body>
 

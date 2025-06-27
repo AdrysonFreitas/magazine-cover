@@ -1,80 +1,139 @@
 function createCover() {
-        let canvas = document.getElementById("mag-cover");
-        const inputs = document.querySelectorAll(".magazine-cover input");
-        const pngLogos = ["Clash", "Dork", "ERES", "Flaunt", "Gay Times", "Genevieve", "High Cut", "Paper", "Pop Magazine", "Vanguard Allure", "Weekly Young"]
+    const inputs = document.querySelectorAll(".magazine-cover input");
+    const pngLogos = ["Genevieve", "Pop Magazine"]
 
-        let inputValues = {artist:"outtathisworld", url:"https://madelaine-petsch.com/albums/userpics/10005/2~7.jpeg", headline:"Tudo sobre sua nova era!", logoColor:"#ffffff"};
+    let inputValues = {artist:"outtathisworld", artistColor: "#ffffff" ,url:"https://madelaine-petsch.com/albums/userpics/10005/2~7.jpeg", headline:"Tudo sobre sua nova era!", headlineColor: "#ffffff" , logoColor:"#ffffff"};
 
-        inputs.forEach(input => {
-            input.addEventListener("input", function() {
-                inputValues = {...inputValues,[this.id]:this.value};
-                DrawCover(inputValues)
-            })
+    inputs.forEach(input => {
+        input.addEventListener("input", function() {
+            inputValues = {...inputValues,[this.id]:this.value};
+            DrawCover(inputValues)
         })
+    })
 
-        document.querySelector("#magazine-select").addEventListener("change", function () {
-            DrawCover(inputValues);
-        });
-
+    document.querySelector("#magazine-select").addEventListener("change", function () {
         DrawCover(inputValues);
+    });
 
-        function DrawCover ({artist, url, headline, logoColor}) {
-            const magazine = document.querySelector("#magazine-select").value;
-            console.log(magazine);
-            if (canvas.getContext) {
+    DrawCover(inputValues);
 
-                //let pxRatio = window.devicePixelRatio;
-                let ctx = canvas.getContext("2d");
-                canvas.width = 500;
-                canvas.height = 620;
-                canvas.style.width = 500 + "px";
-                canvas.style.height = 625 + "px";
+    function DrawCover ({artist, artistColor, url, headline, headlineColor, logoColor}) {
+        const magazine = document.querySelector("#magazine-select").value;
+        console.log(magazine);
 
-                let img = new Image();
-                //img.crossOrigin = "anonymous";
-                img.onload = function () {
-                    let ratio = img.width / img.height;
-                    let newHeight = canvas.width / ratio;
-                    let newWidth = canvas.width;
-                    if (newHeight < canvas.height) {
-                        newHeight = canvas.height;
-                        newWidth = newHeight * ratio;
-                    }
-                    let xOffset = newWidth > canvas.width ? ((canvas.width - newWidth) / 2) : 0;
+        let coverImage = document.querySelector(".mag-cover .mag-cover-img img");
+        let logo = document.querySelector(".mag-cover .mag-cover-logo").firstChild;
+        let textArtist = document.querySelector(".mag-cover .mag-cover-text .text-artist");
+        let textHeadline = document.querySelector(".mag-cover .mag-cover-text .text-headline");
+        
+        DrawCoverImage(coverImage, url);
+        DrawLogo(logo, logoColor, magazine);
+        DrawArtist(textArtist, artist, artistColor);
+        DrawHeadline(textHeadline, headline, headlineColor);
+    };
 
-                    ctx.imageSmoothingEnabled = true;
-                    ctx.drawImage(img, xOffset, 0, newWidth, newHeight);
+    function DrawCoverImage(coverImage, url) {
+        coverImage.setAttribute("src", url);
+    }
 
-                    let logo = new Image();
-                    logo.onload = function () {
-                        let logoRatio = logo.width / logo.height;
-                        console.log(logoRatio);
-                        let logoWidth = canvas.width - 40;
-                        let logoHeight = logoWidth / logoRatio;
+    function DrawArtist(textArtist, artist, artistColor) {
+        textArtist.innerHTML = artist;
+        textArtist.style.color = artistColor;
+    }
 
-                        let offCanvas = document.createElement("canvas");
-                        offCanvas.width = canvas.width;
-                        offCanvas.height = canvas.height;
-                        let offCtx = offCanvas.getContext("2d");
+    function DrawHeadline(textHeadline, headline, headlineColor) {
+        textHeadline.innerHTML = headline;
+        textHeadline.style.color = headlineColor;
+    }
 
-                        offCtx.fillStyle = logoColor;
-                        offCtx.fillRect(20, 20, logoWidth, logoHeight);
-                        offCtx.globalCompositeOperation = "destination-in";
-                        offCtx.drawImage(logo, 20, 20, logoWidth, logoHeight);
-
-                        ctx.drawImage(offCanvas, 0, 0);
-
-                        ctx.font = `bold 40px Satoshi-Variable`;
-                        ctx.fillStyle = "#fff";
-                        ctx.fillText(artist, 40, 505);
-                        ctx.font = `20px Satoshi-Variable`;
-                        ctx.fillStyle = "#fff";
-                        ctx.fillText(headline, 40, 530);
-                    };
-                    let logoFormat = pngLogos.includes(magazine) ? ".png" : ".svg"
-                    logo.src = "static/imgs/logos/" + magazine.toLowerCase() + logoFormat;
-                };
-                img.src = url;
-            }
+    function DrawLogo(logo, logoColor, magazine) {
+        if (pngLogos.includes(magazine)) {
+            handlePng(logo, logoColor, magazine);
+        } else {
+            handleSvg(logo, logoColor, magazine);
         }
+    };
+
+    function handlePng(logo, logoColor, magazine) {
+        let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".png";
+
+        let parentDiv = logo.parentNode;
+        parentDiv.innerHTML = '';
+        parentDiv.parentNode.setAttribute("id", magazine.replace(/\s+/g, '-').toLowerCase());
+
+        let blendWrapper = parentDiv.appendChild(document.createElement("div"));
+        blendWrapper.setAttribute("class", "logo-blend-wrapper");
+
+        logo = blendWrapper.appendChild(document.createElement("img"));
+        logo.setAttribute("src", logoData);
+
+        console.log(blendWrapper);
+
+        let overlayDiv = blendWrapper.appendChild(document.createElement("div"));
+        overlayDiv.setAttribute("class", "color-overlay");
+        overlayDiv.style.backgroundColor = logoColor;
+    }
+
+    function handleSvg(logo, logoColor, magazine) {
+        let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".svg";
+
+        let parentDiv = logo.parentNode;
+        parentDiv.innerHTML = '';
+        parentDiv.parentNode.setAttribute("id", magazine.replace(/\s+/g, '-').toLowerCase());
+
+        logo = parentDiv.appendChild(document.createElement("object"));
+        logo.setAttribute("type", "image/svg+xml");
+        logo.setAttribute("data", logoData);
+
+        logo.style.visibility = 'hidden';
+
+        logo.onload = () => {
+            changeLogoColor(logo, logoColor, magazine);
+            logo.style.visibility = 'visible';
+        };
+    }
+
+    function changeLogoColor(logo, logoColor, magazine) {
+        let svgDoc = logo.getSVGDocument();
+        if (!svgDoc) return;
+
+        let svgElem = svgDoc.querySelector("svg");
+        let svgPaths = svgElem.querySelectorAll("path, polygon, polyline, ellipse, line");
+
+        processLogos(svgElem, svgPaths);
+        
+        svgPaths.forEach(path => {
+            path.style.fill = '';
+            path.setAttribute("fill", logoColor);
+            path.tagName == "line" ? path.setAttribute("stroke", logoColor) : null;
+        });
+    }
+
+    function processLogos(svgElem, svgPaths){
+        svgElem.querySelector("defs") ? svgElem.querySelector("defs").remove() : null;
+        svgElem.querySelector("style") ? svgElem.querySelector("style").remove() : null;
+
+        if (!svgElem.getAttribute('viewBox')) {
+            let logoWidth = parseFloat(svgElem.getAttribute('width'), 10) + 2;
+            let logoHeight = parseFloat(svgElem.getAttribute('height'), 10) + 2;
+
+            if (!logoWidth || !logoHeight) {
+                logoWidth = logoHeight = 0;
+
+                if (svgElem.querySelector("g")) {
+                    svgElem.querySelectorAll("g").forEach(g => {
+                        logoWidth += g.getBBox().width;
+                        logoHeight += g.getBBox().height;
+                    })
+                } else {
+                    svgPaths.forEach(path => {
+                        logoWidth += path.getBBox().width;
+                        logoHeight += path.getBBox().height;
+                    })
+                }
+            }
+
+            svgElem.setAttribute("viewBox", "0 0 "+logoWidth+" "+logoHeight);
+        }
+    }
 }

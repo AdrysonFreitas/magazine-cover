@@ -1,0 +1,243 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+#pop-magazine {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+
+    .mag-cover-logo{
+        width: 248px;
+        height: auto;
+        margin: 30px;
+    }
+
+    .logo-blend-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .logo-blend-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-blend-wrapper .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: lighten; /* Or try overlay, color, hue, screen */
+        opacity: 0.8; /* Adjust as needed */
+        z-index: 2;
+        mask-image: url("../imgs/logos/pop magazine.png");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        -webkit-mask-image: url("../imgs/logos/pop magazine.png");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        pointer-events: none;
+    }
+
+    .mag-cover-text {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        top: 530px;
+    }
+
+    .mag-cover-text > * {
+        text-align: center;
+    }
+
+    .mag-cover-text .text-artist {
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    .mag-cover-text .text-headline {
+        font-size: 11px;
+        padding-top: 0.6rem;
+        font-weight: 300;
+    }
+
+    .mag-cover-logo {
+        line-height: 1;
+        letter-spacing: 1px;
+        gap: 0.6rem;
+    }
+    
+    .mag-cover-logo::after {
+        content: "POP MAGAZINE \a New Issue \a +100 Pages";
+        white-space: pre-wrap;
+        font-size: 8px;
+        color: white;
+    }
+}
+
+#genevieve {
+    font-family: "Bodoni Moda SC", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    .mag-cover-logo{
+        margin: 0;
+        margin-left: 15px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .logo-blend-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .logo-blend-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-blend-wrapper .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        mask-image: url("../imgs/logos/genevieve.png");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        -webkit-mask-image: url("../imgs/logos/genevieve.png");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        pointer-events: none;
+    }
+
+    .mag-cover-text {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        top: 411px;
+        max-width: 100%;
+        left: auto;
+        padding: 0 5%;
+        text-align: center;
+    }
+
+    .mag-cover-text .text-artist {
+        font-size: 44px;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        line-height: 1;
+        font-weight: 600;
+        line-break: loose;
+    }
+
+    .mag-cover-text .text-headline {
+        font-family: "Satoshi-Variable", serif;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 19px;
+    }
+
+    .mag-cover-logo {
+        line-height: 1;
+        letter-spacing: 1px;
+        gap: 0.6rem;
+    }
+    
+    .mag-cover-logo::after {
+        content: "GENEVIEVE MAGAZINE \a New Issue \a genevieve.com";
+        white-space: pre-wrap;
+        font-size: 8px;
+        color: black;
+        margin-left: 23px;
+        margin-top: 390px;
+    }
+}
+
+#time {
+    border: 1.3rem solid #ED2028;
+    position: relative;
+
+    .mag-cover-logo {
+        align-items: center;
+        margin: 0;
+        margin-top: 1rem;
+    }
+
+    .mag-cover-logo object{
+        width: 75%;
+        opacity: 0.5;
+    }
+
+    .mag-cover-text {
+        top: 360px;
+        align-items: end;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+    }
+
+    .mag-cover-text > * {
+        width: 250px;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "DM Serif Text", serif;
+        font-weight: 100;
+        font-size: 16px;
+        font-variant: small-caps;
+        font-family: "Source Serif 4", serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .mag-cover-text .text-headline {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: initial;
+        max-width: none;
+    }
+}
+
+#time::after {
+    background: none;
+    border: 0.4rem solid #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
