@@ -187,10 +187,11 @@
         align-items: center;
         margin: 0;
         margin-top: 1rem;
+        width: 100%;
     }
 
     .mag-cover-logo object{
-        width: 75%;
+        width: 70%;
         opacity: 0.5;
     }
 
