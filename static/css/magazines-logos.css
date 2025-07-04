@@ -336,9 +336,9 @@
         font-size: 65px;
         white-space: normal;
         text-transform: uppercase;
-        overflow: hidden;
         text-overflow: initial;
         max-width: none;
         line-height: 0.8;
+        overflow: inherit;
     }
 }
