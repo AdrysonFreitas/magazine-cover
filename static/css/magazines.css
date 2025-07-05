@@ -90,15 +90,16 @@
     width: 100%;
 }
 
+.magazine-cover .mag-cover .mag-cover-logo span {
+    color: #fff;
+    font-size: 9px;
+}
+
 .magazine-cover .mag-cover .mag-cover-text {
     color: #fff;
     top: 471px;
     max-width: 100%;
     padding: 5%;
-}
-
-.magazine-cover .mag-cover .mag-cover-text > * {
-    text-shadow: 0px 1px 13px black;
 }
 
 .magazine-cover .mag-cover .mag-cover-text .text-artist{

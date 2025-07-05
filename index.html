@@ -34,10 +34,10 @@
                             <label class="black title field-label">Magazine:</label>
                             <select name="select" id="magazine-select" class="categories-select">
                                 <option value="TIME">TIME</option>
-                                <option value="Forbes" selected>Forbes</option>
+                                <option value="Forbes">Forbes</option>
                                 <option value="Variety">Variety</option>
                                 <option value="Harper's Bazaar">Harper's Bazaar</option>
-                                <option value="Elle">Elle</option>
+                                <option value="Elle" selected>Elle</option>
                                 <option value="People">People</option>
                                 <option value="Vanity Fair">Vanity Fair</option>
                                 <option value="Billboard">Billboard</option>
@@ -124,6 +124,10 @@
                         <label class="black title field-label">Logo color:</label>
                         <input name="logoColor" id="logoColor" placeholder="#ffffff" value="#ffffff" type="text" class="field-input color-field" data-coloris/>
                     </div>
+                    <div class="issue-month flexbox gap-1r align-start">
+                        <label class="black title field-label">Month:</label>
+                        <input name="issueMonth" id="issueMonth" type="month" min="2025-07" class="field-input"/>
+                    </div>
                     <!-- <div class="flexbox align-start"><input type="submit" value="Salvar" id="mag-submit" class="flexbox button work-button" /></div> -->
                 </form>
             </section>
@@ -168,6 +172,12 @@
                 alert("You can't write more than " + maxLength +" chacters")
             }
         })
+
+        const monthControl = document.querySelector('input[type="month"]');
+        const date= new Date()
+        const month=("0" + (date.getMonth() + 1)).slice(-2)
+        const year=date.getFullYear()
+        monthControl.value = `${year}-${month}`;
 
         // let coverDiv = document.querySelector("#cover-type1");
         // html2canvas(coverDiv, {allowTaint: true, useCORS: true}).then(function(canvas) {

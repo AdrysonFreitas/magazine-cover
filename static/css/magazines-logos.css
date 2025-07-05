@@ -1,94 +1,342 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
-#pop-magazine {
-    font-family: "Josefin Slab", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: 500;
+#time {
+    border: 1.3rem solid #ED2028;
+    position: relative;
+    overflow: visible;
 
-    .mag-cover-logo{
-        width: 248px;
-        height: auto;
-        margin: 30px;
-    }
-
-    .logo-blend-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: inline-block;
-    }
-
-    .logo-blend-wrapper img {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 1;
-    }
-
-    .logo-blend-wrapper .color-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        mix-blend-mode: lighten; /* Or try overlay, color, hue, screen */
-        opacity: 0.8; /* Adjust as needed */
-        z-index: 2;
-        mask-image: url("../imgs/logos/pop magazine.png");
-        mask-repeat: no-repeat;
-        mask-position: center;
-        mask-size: contain;
-
-        -webkit-mask-image: url("../imgs/logos/pop magazine.png");
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        -webkit-mask-size: contain;
-
-        pointer-events: none;
-    }
-
-    .mag-cover-text {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        flex-direction: column;
-        top: 530px;
-    }
-
-    .mag-cover-text > * {
-        text-align: center;
-    }
-
-    .mag-cover-text .text-artist {
-        font-size: 20px;
-        font-weight: 900;
-    }
-
-    .mag-cover-text .text-headline {
-        font-size: 11px;
-        padding-top: 0.6rem;
-        font-weight: 300;
+    .mag-cover-img {
+        width: calc(500px - 2.6rem);
+        height: calc(625px - 2.6rem);
     }
 
     .mag-cover-logo {
-        line-height: 1;
-        letter-spacing: 1px;
-        gap: 0.6rem;
+        align-items: center;
+        margin: 0;
+        margin-top: 1rem;
+        width: 100%;
     }
-    
+
+    .mag-cover-logo object{
+        width: 70%;
+        opacity: 0.5;
+    }
+
+    .mag-cover-text {
+        top: 360px;
+        align-items: end;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+    }
+
+    .mag-cover-text > * {
+        text-shadow: 0px 1px 13px black;
+        width: 55%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 100;
+        font-size: 16px;
+        font-variant: small-caps;
+        font-family: "Source Serif 4", serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .mag-cover-text .text-headline {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: initial;
+        max-width: none;
+    }
+
+    .mag-cover-logo span {
+        color: black;
+        position: absolute;
+        top: -1.6rem;
+        text-transform: uppercase;
+        font-size: 7px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        text-shadow: 0px 1px 13px black;
+    }
+}
+
+#time::after {
+    background: none;
+    border: 0.4rem solid #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+#forbes {
+    position: relative;
+
+    .mag-cover-logo {
+        align-items: center;
+        margin: 0;
+        margin-top: 4rem;
+        width: 100%;
+    }
+
+    .mag-cover-logo object{
+        width: 60%;
+    }
+
     .mag-cover-logo::after {
-        content: "POP MAGAZINE \a New Issue \a +100 Pages";
-        white-space: pre-wrap;
-        font-size: 8px;
-        color: white;
+        content: "MONTHLY ISSUE";
+        font-family: "Josefin Sans", sans-serif;
+        text-align: center;
+        position: absolute;
+        font-size: 9px;
+        top: -64px;
+        width: 70px;
+        height: 59px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #EF1A24;
+        color: #fff;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    .mag-cover-text {
+        bottom: 11px;
+        min-height: 300px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: end;
+        top: auto;
+    }
+
+    .mag-cover-text > * {
+        width: 59%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 10px;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: absolute;
+        top: -30px;
+        text-align: end;
+        right: 2rem;
+        max-width: max-content;
+    }
+
+    .mag-cover-text .text-artist::before {
+        content: 'Music';
+        position: absolute;
+        font-family: "Josefin Sans", sans-serif;
+        top: -1.2rem;
+        text-align: center;
+        width: 100%;
+        font-weight: 300;
+        text-transform: capitalize;
+        letter-spacing: 0.05rem;
+        font-size: 13px;
+    }
+
+    .mag-cover-text .text-artist::after {
+        content:'';
+        position:absolute;
+        width:75%;
+        height:1px;
+        background:#fff;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        top: 1rem;
+    }
+
+    .mag-cover-text .text-headline {
+        font-family: "Imbue", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 65px;
+        white-space: normal;
+        text-transform: uppercase;
+        text-overflow: initial;
+        max-width: none;
+        line-height: 0.8;
+        overflow: inherit;
+    }
+
+    .mag-cover-logo span {
+        color: #fff;
+        position: absolute;
+        right: 1rem;
+        bottom: -560%;
+        text-transform: capitalize;
+        font-size: 6px;
+        letter-spacing: 1px;
+        text-shadow: 0px 1px 13px black;
+        text-align: end;
+    }
+}
+
+#variety {
+    position: relative;
+
+    .mag-cover-logo {
+        align-items: center;
+        margin: 0;
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .mag-cover-logo object{
+        width: 55%;
+        mix-blend-mode: hard-light;
+    }
+
+    .mag-cover-text {
+        bottom: 0;
+        top: auto;
+        align-items: flex-start;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0rem;
+        min-height: 253px;
+        max-height: fit-content;
+        justify-content: flex-end;
+    }
+
+    .mag-cover-text > * {
+        width: 64%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 60px;
+        font-optical-sizing: auto;
+        font-style: normal;
+        line-break: auto;
+        word-wrap: break-word;
+        padding-left: 1rem;
+        text-indent: -1rem;
+    }
+
+    .mag-cover-text .text-headline {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: initial;
+        max-width: none;
+        letter-spacing: 2px;
+        padding: 3px 2rem;
+    }
+
+    .mag-cover-logo span {
+        font-family: "Inter", sans-serif;
+        color: #fff;
+        position: absolute;
+        left: 1rem;
+        top: -1rem;
+        text-transform: uppercase;
+        font-size: 6px;
+        letter-spacing: 1px;
+        text-shadow: 0px 1px 13px black;
+    }
+}
+
+#harpers-bazaar {
+    font-family: "Bodoni Moda", serif;
+    position: relative;
+
+    .mag-cover-logo {
+        align-items: center;
+        width: 94%;
+        margin: 3%;
+    }
+
+    .mag-cover-text {
+        bottom: 0;
+        top: auto;
+        align-items: flex-end;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+        min-height: 253px;
+        max-height: fit-content;
+        text-transform: uppercase;
+    }
+
+    .mag-cover-text > * {
+        width: 100%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 300;
+        position: absolute;
+        font-size: 34px;
+        top: -43%;
+        font-optical-sizing: auto;
+        font-style: normal;
+        line-break: auto;
+        word-wrap: break-word;
+        text-align: center;
+        width: 33%;
+        text-transform: initial;
+    }
+
+    .mag-cover-text .text-artist::before {
+        content: 'MUSIC ISSUE by';
+        position: absolute;
+        top: -1.1rem;
+        right: 0;
+        width: 100%;
+        font-weight: 100;
+        font-size: 15px;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 500;
+        font-style: normal;
+        font-size: 60px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: initial;
+        max-width: none;
+        text-align: left;
+    }
+
+    .mag-cover-logo span {
+        font-family: "Satoshi Variable", serif;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 6.5px;
+        text-shadow: 0px 1px 13px black;
+        font-weight: 300;
     }
 }
 
 #genevieve {
-    font-family: "Bodoni Moda SC", serif;
+    font-family: "Bodoni Moda", serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
@@ -168,177 +416,116 @@
         letter-spacing: 1px;
         gap: 0.6rem;
     }
-    
-    .mag-cover-logo::after {
-        content: "GENEVIEVE MAGAZINE \a New Issue \a genevieve.com";
+
+    .mag-cover-logo span::before {
+        content: "GENEVIEVE MAGAZINE \a";
         white-space: pre-wrap;
+    }
+
+    .mag-cover-logo span {
         font-size: 8px;
         color: black;
         margin-left: 23px;
         margin-top: 390px;
     }
+    
+    .mag-cover-logo span::after {
+        content: " Issue \a genevieve.com";
+        white-space: pre-wrap;
+    }
 }
 
-#time {
-    border: 1.3rem solid #ED2028;
-    position: relative;
+#pop-magazine {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
 
-    .mag-cover-logo {
-        align-items: center;
-        margin: 0;
-        margin-top: 1rem;
-        width: 100%;
+    .mag-cover-logo{
+        width: 248px;
+        height: auto;
+        margin: 30px;
     }
 
-    .mag-cover-logo object{
-        width: 70%;
-        opacity: 0.5;
+    .logo-blend-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .logo-blend-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-blend-wrapper .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: lighten; /* Or try overlay, color, hue, screen */
+        opacity: 0.8; /* Adjust as needed */
+        z-index: 2;
+        mask-image: url("../imgs/logos/pop magazine.png");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        -webkit-mask-image: url("../imgs/logos/pop magazine.png");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        pointer-events: none;
     }
 
     .mag-cover-text {
-        top: 360px;
-        align-items: end;
-        text-align: center;
-        flex-direction: column-reverse;
-        gap: 0.5rem;
-    }
-
-    .mag-cover-text > * {
-        width: 250px;
-    }
-
-    .mag-cover-text .text-artist {
-        font-weight: 100;
-        font-size: 16px;
-        font-variant: small-caps;
-        font-family: "Source Serif 4", serif;
-        font-optical-sizing: auto;
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    .mag-cover-text .text-headline {
-        font-family: "DM Serif Text", serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 30px;
-        white-space: normal;
-        overflow: hidden;
-        text-overflow: initial;
-        max-width: none;
-    }
-}
-
-#time::after {
-    background: none;
-    border: 0.4rem solid #fff;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-#forbes {
-    position: relative;
-
-    .mag-cover-logo {
-        align-items: center;
-        margin: 0;
-        margin-top: 4rem;
-        width: 100%;
-    }
-
-    .mag-cover-logo object{
-        width: 60%;
-    }
-
-    .mag-cover-logo::after {
-        content: "MONTHLY ISSUE";
-        font-family: "Josefin Sans", sans-serif;
-        text-align: center;
-        position: absolute;
-        font-size: 9px;
-        top: -64px;
-        width: 70px;
-        height: 59px;
         display: flex;
+        width: 100%;
         align-items: center;
-        justify-content: center;
-        background-color: #EF1A24;
-        color: #fff;
-        letter-spacing: 1px;
-        font-weight: 700;
-    }
-
-    .mag-cover-text {
-        bottom: 11px;
-        min-height: 300px;
-        align-items: flex-start;
         flex-direction: column;
-        gap: 0.5rem;
-        justify-content: end;
-        top: auto;
+        top: 530px;
     }
 
     .mag-cover-text > * {
-        width: 265px;
+        text-align: center;
     }
 
     .mag-cover-text .text-artist {
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 10px;
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        position: absolute;
-        top: -30px;
-        text-align: end;
-        right: 2rem;
-        max-width: max-content;
-    }
-
-    .mag-cover-text .text-artist::before {
-        content: 'Music';
-        position: absolute;
-        font-family: "Josefin Sans", sans-serif;
-        top: -1.2rem;
-        text-align: center;
-        width: 100%;
-        font-weight: 300;
-        text-transform: capitalize;
-        letter-spacing: 0.05rem;
-        font-size: 13px;
-    }
-
-    .mag-cover-text .text-artist::after {
-        content:'';
-        position:absolute;
-        width:75%;
-        height:1px;
-        background:#fff;
-        bottom:0;
-        left:0;
-        right:0;
-        margin:auto;
-        top: 1rem;
+        font-size: 20px;
+        font-weight: 900;
     }
 
     .mag-cover-text .text-headline {
-        font-family: "Imbue", serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 65px;
-        white-space: normal;
-        text-transform: uppercase;
-        text-overflow: initial;
-        max-width: none;
-        line-height: 0.8;
-        overflow: inherit;
+        font-size: 11px;
+        padding-top: 0.6rem;
+        font-weight: 300;
+    }
+
+    .mag-cover-logo {
+        line-height: 1;
+        letter-spacing: 1px;
+        gap: 0.6rem;
+    }
+
+    .mag-cover-logo span::before {
+        content: "POP MAGAZINE \a";
+        white-space: pre-wrap;
+    }
+
+    .mag-cover-logo span {
+        font-size: 8px;
+        color: white;
+        line-height: 1;
+    }
+    
+    .mag-cover-logo span::after {
+        content: " Issue \a +100 Pages";
+        white-space: pre-wrap;
     }
 }

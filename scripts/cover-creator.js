@@ -2,7 +2,7 @@ function createCover() {
     const inputs = document.querySelectorAll(".magazine-cover input");
     const pngLogos = ["Genevieve", "Pop Magazine"]
 
-    let inputValues = {artist:"outtathisworld", artistColor: "#ffffff" ,url:"https://madelaine-petsch.com/albums/userpics/10005/2~7.jpeg", headline:"Tudo sobre sua nova era!", headlineColor: "#ffffff" , logoColor:"#ffffff"};
+    let inputValues = {artist:"outtathisworld", artistColor: "#ffffff", url:"https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg", headline:"The Powerful Version 9 Issue", headlineColor: "#ffffff" , logoColor:"#ffffff", issueMonth: "2025-07"};
 
     inputs.forEach(input => {
         input.addEventListener("input", function() {
@@ -17,7 +17,7 @@ function createCover() {
 
     DrawCover(inputValues);
 
-    function DrawCover ({artist, artistColor, url, headline, headlineColor, logoColor}) {
+    function DrawCover ({artist, artistColor, url, headline, headlineColor, logoColor, issueMonth}) {
         const magazine = document.querySelector("#magazine-select").value;
         console.log(magazine);
 
@@ -27,7 +27,7 @@ function createCover() {
         let textHeadline = document.querySelector(".mag-cover .mag-cover-text .text-headline");
         
         DrawCoverImage(coverImage, url);
-        DrawLogo(logo, logoColor, magazine);
+        DrawLogo(logo, logoColor, magazine, issueMonth);
         DrawArtist(textArtist, artist, artistColor);
         DrawHeadline(textHeadline, headline, headlineColor);
     };
@@ -46,20 +46,20 @@ function createCover() {
         textHeadline.style.color = headlineColor;
     }
 
-    function DrawLogo(logo, logoColor, magazine) {
+    function DrawLogo(logo, logoColor, magazine, issueMonth) {
         if (pngLogos.includes(magazine)) {
-            handlePng(logo, logoColor, magazine);
+            handlePng(logo, logoColor, magazine, issueMonth);
         } else {
-            handleSvg(logo, logoColor, magazine);
+            handleSvg(logo, logoColor, magazine, issueMonth);
         }
     };
 
-    function handlePng(logo, logoColor, magazine) {
+    function handlePng(logo, logoColor, magazine, issueMonth) {
         let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".png";
 
         let parentDiv = logo.parentNode;
         parentDiv.innerHTML = '';
-        parentDiv.parentNode.setAttribute("id", magazine.replace(/\s+/g, '-').toLowerCase());
+        parentDiv.parentNode.setAttribute("id", magazine.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase());
 
         let blendWrapper = parentDiv.appendChild(document.createElement("div"));
         blendWrapper.setAttribute("class", "logo-blend-wrapper");
@@ -72,14 +72,16 @@ function createCover() {
         let overlayDiv = blendWrapper.appendChild(document.createElement("div"));
         overlayDiv.setAttribute("class", "color-overlay");
         overlayDiv.style.backgroundColor = logoColor;
+        let issueMonthSpan = parentDiv.appendChild(document.createElement("span"));
+        issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
     }
 
-    function handleSvg(logo, logoColor, magazine) {
+    function handleSvg(logo, logoColor, magazine, issueMonth) {
         let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".svg";
 
         let parentDiv = logo.parentNode;
         parentDiv.innerHTML = '';
-        parentDiv.parentNode.setAttribute("id", magazine.replace(/\s+/g, '-').toLowerCase());
+        parentDiv.parentNode.setAttribute("id", magazine.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase());
 
         logo = parentDiv.appendChild(document.createElement("object"));
         logo.setAttribute("type", "image/svg+xml");
@@ -90,6 +92,8 @@ function createCover() {
         logo.onload = () => {
             changeLogoColor(logo, logoColor, magazine);
             logo.style.visibility = 'visible';
+            let issueMonthSpan = parentDiv.appendChild(document.createElement("span"));
+            issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
         };
     }
 
