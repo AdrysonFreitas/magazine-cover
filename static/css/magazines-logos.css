@@ -1,5 +1,6 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Special+Gothic+Condensed+One&display=swap');
+@import url(https://db.onlinewebfonts.com/c/024b66f888ef4264a56e89e2ae320e69?family=Dharma+Gothic+C+W01+Heavy);
 
 #time {
     border: 1.3rem solid #ED2028;
@@ -332,6 +333,221 @@
         font-size: 6.5px;
         text-shadow: 0px 1px 13px black;
         font-weight: 300;
+    }
+}
+
+#elle {
+    font-family: "Josefin Sans", sans-serif;
+    position: relative;
+
+    .mag-cover-logo {
+        align-items: center;
+        width: 90%;
+        margin: 5%;
+    }
+
+    .mag-cover-text {
+        bottom: 0;
+        top: auto;
+        align-items: flex-end;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+        min-height: 253px;
+        max-height: fit-content;
+        text-transform: uppercase;
+    }
+
+    .mag-cover-text > * {
+        width: 50%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 200;
+        position: absolute;
+        font-size: 60px;
+        left: 5%;
+        top: -2rem;
+        font-optical-sizing: auto;
+        font-style: normal;
+        line-break: auto;
+        word-wrap: break-word;
+        text-align: left;
+        letter-spacing: -6pt;
+        line-height: 0.8;
+        min-width: 30%;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+    }
+
+    .mag-cover-text .text-artist::before {
+        content: 'THE\aMUSIC\aISSE';
+        white-space: pre-wrap;
+        position: absolute;
+        top: -4.3rem;
+        right: 0;
+        width: 100%;
+        font-weight: 100;
+        font-size: 25px;
+        letter-spacing: -2px;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        white-space: normal;
+        text-overflow: initial;
+        max-width: none;
+        text-align: right;
+        word-wrap: break-word;
+        line-height: 0.8;
+        letter-spacing: -2px;
+        padding-top: 1rem;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+    }
+
+    .mag-cover-logo span {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 8px;
+        text-shadow: 0px 1px 13px black;
+        font-weight: 400;
+    }
+}
+
+#v {
+    font-family: "Dharma Gothic C W01 Heavy", "Special Gothic Condensed One", sans-serif;
+    position: relative;
+
+    .mag-cover-logo{
+        width: 100%;
+        height: auto;
+        padding: 3.5%;
+        margin: 0;
+        margin-top: -2.5%;
+    }
+
+    .logo-blend-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        opacity: 0.75;
+    }
+
+    .logo-blend-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-blend-wrapper .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: normal; /* Or try overlay, color, hue, screen */
+        opacity: 1; /* Adjust as needed */
+        z-index: 2;
+        mask-image: url("../imgs/logos/v.png");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        -webkit-mask-image: url("../imgs/logos/v.png");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        pointer-events: none;
+    }
+
+    .mag-cover-text {
+        bottom: 0;
+        top: auto;
+        align-items: flex-end;
+        text-align: center;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+        min-height: 253px;
+        max-height: fit-content;
+        text-transform: uppercase;
+    }
+
+    .mag-cover-text > * {
+        width: 50%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 200;
+        font-size: 36px;
+        font-optical-sizing: auto;
+        font-style: normal;
+        line-break: auto;
+        word-wrap: break-word;
+        text-align: right;
+        line-height: 0.72;
+        min-width: 15%;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+    }
+
+    .mag-cover-text .text-artist::before {
+        content: 'STARRING\a';
+        white-space: pre-wrap;
+        width: 100%;
+        font-weight: 100;
+        font-size: 30px;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 400;
+        font-style: normal;
+        font-size: 64px;
+        white-space: normal;
+        text-overflow: initial;
+        max-width: none;
+        text-align: right;
+        word-wrap: break-word;
+        line-height: 0.72;
+        padding-top: 1rem;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+    }
+
+    .mag-cover-logo span {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 25px;
+        text-shadow: 0px 1px 36px black;
+        font-weight: 100;
+        position: absolute;
+        bottom: 5%;
     }
 }
 

@@ -1,6 +1,6 @@
 function createCover() {
     const inputs = document.querySelectorAll(".magazine-cover input");
-    const pngLogos = ["Genevieve", "Pop Magazine"]
+    const pngLogos = ["Genevieve", "Pop Magazine", "V"]
 
     let inputValues = {artist:"outtathisworld", artistColor: "#ffffff", url:"https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg", headline:"The Powerful Version 9 Issue", headlineColor: "#ffffff" , logoColor:"#ffffff", issueMonth: "2025-07"};
 
@@ -116,6 +116,7 @@ function createCover() {
     function processLogos(svgElem, svgPaths){
         svgElem.querySelector("defs") ? svgElem.querySelector("defs").remove() : null;
         svgElem.querySelector("style") ? svgElem.querySelector("style").remove() : null;
+        svgElem.querySelector("rect") ? svgElem.querySelector("rect").remove() : null;
 
         if (!svgElem.getAttribute('viewBox')) {
             let logoWidth = parseFloat(svgElem.getAttribute('width'), 10) + 2;
