@@ -1,15 +1,16 @@
 function createCover() {
     const inputs = document.querySelectorAll(".magazine-cover input");
-    const pngLogos = ["Genevieve", "Pop Magazine", "V"]
+    const pngLogos = ["Genevieve", "Pop Magazine", "V", "inTouch"];
+    const fixedColorLogos = ["OK!", "Us Weekly", "Capricho", "The Sun", "CARAS", "Entertainment Weekly", "Contigo!", "GQ"];
 
-    let inputValues = {artist:"outtathisworld", artistColor: "#ffffff", url:"https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg", headline:"The Powerful Version 9 Issue", headlineColor: "#ffffff" , logoColor:"#ffffff", issueMonth: "2025-07"};
+    let inputValues = { artist: "outtathisworld", artistColor: "#ffffff", url: "https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg", headline: "The Powerful Version 9 Issue", headlineColor: "#ffffff", logoColor: "#ffffff", issueMonth: "2025-09" };
 
-    inputs.forEach(input => {
-        input.addEventListener("input", function() {
-            inputValues = {...inputValues,[this.id]:this.value};
-            DrawCover(inputValues)
-        })
-    })
+    inputs.forEach((input) => {
+        input.addEventListener("input", function () {
+            inputValues = { ...inputValues, [this.id]: this.value };
+            DrawCover(inputValues);
+        });
+    });
 
     document.querySelector("#magazine-select").addEventListener("change", function () {
         DrawCover(inputValues);
@@ -17,7 +18,7 @@ function createCover() {
 
     DrawCover(inputValues);
 
-    function DrawCover ({artist, artistColor, url, headline, headlineColor, logoColor, issueMonth}) {
+    function DrawCover({ artist, artistColor, url, headline, headlineColor, logoColor, issueMonth }) {
         const magazine = document.querySelector("#magazine-select").value;
         console.log(magazine);
 
@@ -25,12 +26,12 @@ function createCover() {
         let logo = document.querySelector(".mag-cover .mag-cover-logo").firstChild;
         let textArtist = document.querySelector(".mag-cover .mag-cover-text .text-artist");
         let textHeadline = document.querySelector(".mag-cover .mag-cover-text .text-headline");
-        
+
         DrawCoverImage(coverImage, url);
         DrawLogo(logo, logoColor, magazine, issueMonth);
         DrawArtist(textArtist, artist, artistColor);
         DrawHeadline(textHeadline, headline, headlineColor);
-    };
+    }
 
     function DrawCoverImage(coverImage, url) {
         coverImage.setAttribute("src", url);
@@ -52,14 +53,20 @@ function createCover() {
         } else {
             handleSvg(logo, logoColor, magazine, issueMonth);
         }
-    };
+    }
 
     function handlePng(logo, logoColor, magazine, issueMonth) {
         let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".png";
 
         let parentDiv = logo.parentNode;
-        parentDiv.innerHTML = '';
-        parentDiv.parentNode.setAttribute("id", magazine.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase());
+        parentDiv.innerHTML = "";
+        parentDiv.parentNode.setAttribute(
+            "id",
+            magazine
+                .replace(/[^\w\s]/gi, "")
+                .replace(/\s+/g, "-")
+                .toLowerCase()
+        );
 
         let blendWrapper = parentDiv.appendChild(document.createElement("div"));
         blendWrapper.setAttribute("class", "logo-blend-wrapper");
@@ -73,27 +80,33 @@ function createCover() {
         overlayDiv.setAttribute("class", "color-overlay");
         overlayDiv.style.backgroundColor = logoColor;
         let issueMonthSpan = parentDiv.appendChild(document.createElement("span"));
-        issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+        issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString("en-US", { year: "numeric", month: "long" });
     }
 
     function handleSvg(logo, logoColor, magazine, issueMonth) {
         let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".svg";
 
         let parentDiv = logo.parentNode;
-        parentDiv.innerHTML = '';
-        parentDiv.parentNode.setAttribute("id", magazine.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase());
+        parentDiv.innerHTML = "";
+        parentDiv.parentNode.setAttribute(
+            "id",
+            magazine
+                .replace(/[^\w\s]/gi, "")
+                .replace(/\s+/g, "-")
+                .toLowerCase()
+        );
 
         logo = parentDiv.appendChild(document.createElement("object"));
         logo.setAttribute("type", "image/svg+xml");
         logo.setAttribute("data", logoData);
 
-        logo.style.visibility = 'hidden';
+        logo.style.visibility = "hidden";
 
         logo.onload = () => {
             changeLogoColor(logo, logoColor, magazine);
-            logo.style.visibility = 'visible';
+            logo.style.visibility = "visible";
             let issueMonthSpan = parentDiv.appendChild(document.createElement("span"));
-            issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+            issueMonthSpan.innerHTML = new Date(issueMonth + "-02").toLocaleDateString("en-US", { year: "numeric", month: "long" });
         };
     }
 
@@ -104,41 +117,43 @@ function createCover() {
         let svgElem = svgDoc.querySelector("svg");
         let svgPaths = svgElem.querySelectorAll("path, polygon, polyline, ellipse, line");
 
-        processLogos(svgElem, svgPaths);
-        
-        svgPaths.forEach(path => {
-            path.style.fill = '';
-            path.setAttribute("fill", logoColor);
-            path.tagName == "line" ? path.setAttribute("stroke", logoColor) : null;
+        processLogos(svgElem, svgPaths, magazine);
+
+        svgPaths.forEach((path) => {
+            if (!fixedColorLogos.includes(magazine)) {
+                path.style.fill = "";
+                path.setAttribute("fill", logoColor);
+                path.tagName == "line" ? path.setAttribute("stroke", logoColor) : null;
+            }
         });
     }
 
-    function processLogos(svgElem, svgPaths){
-        svgElem.querySelector("defs") ? svgElem.querySelector("defs").remove() : null;
-        svgElem.querySelector("style") ? svgElem.querySelector("style").remove() : null;
-        svgElem.querySelector("rect") ? svgElem.querySelector("rect").remove() : null;
+    function processLogos(svgElem, svgPaths, magazine) {
+        !fixedColorLogos.includes(magazine) ? (svgElem.querySelector("defs") ? svgElem.querySelector("defs").remove() : null) : null;
+        !fixedColorLogos.includes(magazine) ? (svgElem.querySelector("style") ? svgElem.querySelector("style").remove() : null) : null;
+        !fixedColorLogos.includes(magazine) ? (svgElem.querySelector("rect") ? svgElem.querySelector("rect").remove() : null) : null;
 
-        if (!svgElem.getAttribute('viewBox')) {
-            let logoWidth = parseFloat(svgElem.getAttribute('width'), 10) + 2;
-            let logoHeight = parseFloat(svgElem.getAttribute('height'), 10) + 2;
+        if (!svgElem.getAttribute("viewBox")) {
+            let logoWidth = parseFloat(svgElem.getAttribute("width"), 10) + 2;
+            let logoHeight = parseFloat(svgElem.getAttribute("height"), 10) + 2;
 
             if (!logoWidth || !logoHeight) {
                 logoWidth = logoHeight = 0;
 
                 if (svgElem.querySelector("g")) {
-                    svgElem.querySelectorAll("g").forEach(g => {
+                    svgElem.querySelectorAll("g").forEach((g) => {
                         logoWidth += g.getBBox().width;
                         logoHeight += g.getBBox().height;
-                    })
+                    });
                 } else {
-                    svgPaths.forEach(path => {
+                    svgPaths.forEach((path) => {
                         logoWidth += path.getBBox().width;
                         logoHeight += path.getBBox().height;
-                    })
+                    });
                 }
             }
 
-            svgElem.setAttribute("viewBox", "0 0 "+logoWidth+" "+logoHeight);
+            svgElem.setAttribute("viewBox", "0 0 " + logoWidth + " " + logoHeight);
         }
     }
 }
