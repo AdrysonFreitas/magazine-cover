@@ -1,5 +1,5 @@
 /* fonts */
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Special+Gothic+Condensed+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat+Brush&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Special+Gothic+Condensed+One&display=swap");
 @import url(https://db.onlinewebfonts.com/c/024b66f888ef4264a56e89e2ae320e69?family=Dharma+Gothic+C+W01+Heavy);
 
 #time {
@@ -551,6 +551,208 @@
     }
 }
 
+#flaunt {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+
+    .mag-cover-logo {
+        margin: -10% 0 0 0;
+        width: 100%;
+    }
+
+    .mag-cover-text {
+        align-items: left;
+        text-align: center;
+        gap: 1px;
+        line-break: auto;
+        word-wrap: break-word;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        overflow: unset;
+        min-width: 100%;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        top: unset;
+        min-height: max-content;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 400;
+        font-size: 18px;
+        word-break: break-word;
+        text-align: center;
+        line-height: 0.7;
+        min-width: 100%;
+        width: min-content;
+        white-space: normal;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        position: relative;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 300;
+        font-size: 13px;
+        font-style: italic;
+        text-align: center;
+        white-space: normal;
+        word-break: auto-phrase;
+        line-height: 1;
+        min-width: 100%;
+        width: min-content;
+        text-transform: capitalize;
+        z-index: 2;
+        position: relative;
+    }
+
+    .mag-cover-logo span {
+        color: white;
+        text-transform: uppercase;
+        font-size: 6px;
+        font-weight: 400;
+        position: absolute;
+        bottom: -455px;
+        rotate: 90deg;
+        left: -20px;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-shadow: 0px 0px 6px black;
+        text-align: end;
+        width: fit-content;
+    }
+}
+
+#dork {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+
+    .mag-cover-logo {
+        margin: -6px 0 0 0;
+        width: 102%;
+    }
+
+    .mag-cover-logo::after {
+        content: "DOWN WITH BORING\a";
+        white-space: pre-wrap;
+        line-height: 0.4 !important;
+        color: white;
+        text-transform: uppercase;
+        font-size: 6px;
+        font-weight: 400;
+        position: absolute;
+        bottom: -5px;
+        left: 5%;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-shadow: 0px 0px 6px black;
+        text-align: start;
+    }
+
+    .mag-cover-logo::before {
+        content: "*SUPER SIZED DOUBLE ISSUE**   THE MUSIC YOU NEED  UNSEEN PHOTOS   UNPUBLISHED INTERVIEWS  ***LOADS MORE*";
+        white-space: pre-wrap;
+        line-height: 0.4 !important;
+        color: white;
+        text-transform: uppercase;
+        font-size: 6px;
+        font-weight: 700;
+        position: absolute;
+        top: 15%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-align: center;
+    }
+
+    .mag-cover-text {
+        align-items: center;
+        text-align: center;
+        gap: 0;
+        line-break: auto;
+        word-wrap: break-word;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        overflow: unset;
+        min-width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 10%;
+        top: unset;
+        min-height: max-content;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "Big Shoulders", sans-serif;
+        font-weight: 900;
+        font-size: 102px;
+        line-break: auto;
+        word-wrap: break-word;
+        word-break: break-word;
+        text-align: center;
+        line-height: 0.7;
+        min-width: 80%;
+        width: min-content;
+        white-space: normal;
+        text-transform: capitalize;
+        letter-spacing: -5px;
+        position: relative;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 500;
+        font-size: 10px;
+        text-align: center;
+        white-space: normal;
+        word-break: auto-phrase;
+        line-height: 1;
+        min-width: 70%;
+        width: min-content;
+        text-transform: uppercase;
+        word-spacing: 2rem;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .mag-cover-logo span {
+        color: white;
+        text-transform: uppercase;
+        font-size: 6px;
+        font-weight: 400;
+        position: absolute;
+        bottom: -8px;
+        right: 5%;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-shadow: 0px 0px 6px black;
+        text-align: end;
+    }
+
+    .mag-cover-logo span::after {
+        content: " • READDORK.COM";
+    }
+
+    .mag-cover-logo span::before {
+        content: "MUSIC ISSUE • ";
+    }
+}
+
 #genevieve {
     font-family: "Bodoni Moda", serif;
     font-optical-sizing: auto;
@@ -687,12 +889,12 @@
         mix-blend-mode: lighten; /* Or try overlay, color, hue, screen */
         opacity: 0.8; /* Adjust as needed */
         z-index: 2;
-        mask-image: url("../imgs/logos/pop magazine.png");
+        mask-image: url("../imgs/logos/pop-magazine.png");
         mask-repeat: no-repeat;
         mask-position: center;
         mask-size: contain;
 
-        -webkit-mask-image: url("../imgs/logos/pop magazine.png");
+        -webkit-mask-image: url("../imgs/logos/pop-magazine.png");
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
         -webkit-mask-size: contain;
@@ -838,5 +1040,144 @@
 
     .mag-cover-logo span::after {
         content: " • £3.60";
+    }
+}
+
+#eres {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+
+    .mag-cover-logo {
+        width: 82%;
+        height: auto;
+        margin: 2% 8%;
+    }
+
+    .logo-blend-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .logo-blend-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-blend-wrapper .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: difference; /* Or try overlay, color, hue, screen */
+        opacity: 1; /* Adjust as needed */
+        z-index: 2;
+        mask-image: url("../imgs/logos/eres.png");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        -webkit-mask-image: url("../imgs/logos/eres.png");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        pointer-events: none;
+    }
+
+    .mag-cover-text {
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.5rem;
+        height: 100%;
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        line-break: auto;
+        word-wrap: break-word;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+        overflow: unset;
+        min-width: 100%;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "Caveat Brush", cursive;
+        position: absolute;
+        bottom: 4%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        rotate: 356deg;
+        font-weight: 200;
+        font-size: 83px;
+        line-break: auto;
+        word-wrap: break-word;
+        word-break: break-word;
+        text-align: center;
+        line-height: 0.8;
+        min-width: 80%;
+        width: min-content;
+        white-space: normal;
+    }
+
+    .mag-cover-text .text-artist::before {
+        content: "ENTREVISTA EXCLUSIVA\a";
+        white-space: pre-wrap;
+        width: 100%;
+        font-weight: 100;
+        font-size: 18px;
+        line-height: 0.4 !important;
+        color: var(--Off-white);
+        letter-spacing: 1px;
+        background-color: var(--Purple);
+        padding: 1px 1rem;
+    }
+
+    .mag-cover-text .text-headline {
+        position: absolute;
+        top: 51%;
+        left: 8%;
+        rotate: 352deg;
+        font-weight: 900;
+        font-size: 10px;
+        text-align: center;
+        white-space: normal;
+        word-break: auto-phrase;
+        line-height: 1;
+        min-width: 19%;
+        width: min-content;
+        background-color: #f9f251;
+        padding: 9px 7px;
+    }
+
+    .mag-cover-logo span {
+        color: black;
+        text-transform: uppercase;
+        font-size: 8px;
+        font-weight: 600;
+        position: absolute;
+        bottom: 86%;
+        left: 75%;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-shadow: 0px 0px 5px white;
+    }
+
+    .mag-cover-logo span::after {
+        content: "";
     }
 }

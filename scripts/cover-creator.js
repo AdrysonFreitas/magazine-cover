@@ -1,9 +1,18 @@
 function createCover() {
     const inputs = document.querySelectorAll(".magazine-cover input");
-    const pngLogos = ["Genevieve", "Pop Magazine", "V", "inTouch"];
-    const fixedColorLogos = ["OK!", "Us Weekly", "Capricho", "The Sun", "CARAS", "Entertainment Weekly", "Contigo!", "GQ"];
+    const pngLogos = ["genevieve", "pop-magazine", "v", "intouch", "eres"];
+    const fixedColorLogos = ["ok", "us-weekly", "the-sun", "caras", "contigo"];
+    const gossipMagazines = ["ok", "the-sun", "teen-people", "atrevida", "us-weekly", "intouch"];
 
-    let inputValues = { artist: "outtathisworld", artistColor: "#ffffff", url: "https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg", headline: "The Powerful Version 9 Issue", headlineColor: "#ffffff", logoColor: "#ffffff", issueMonth: "2025-09" };
+    let inputValues = {
+        artist: "outtathisworld",
+        artistColor: "#ffffff",
+        url: "https://madelaine-petsch.com/albums/userpics/10005/008~66.jpg",
+        headline: "The Powerful Version 9 Issue",
+        headlineColor: "#ffffff",
+        logoColor: "#ffffff",
+        issueMonth: "2025-09",
+    };
 
     inputs.forEach((input) => {
         input.addEventListener("input", function () {
@@ -56,17 +65,11 @@ function createCover() {
     }
 
     function handlePng(logo, logoColor, magazine, issueMonth) {
-        let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".png";
+        let logoData = "static/imgs/logos/" + magazine + ".png";
 
         let parentDiv = logo.parentNode;
         parentDiv.innerHTML = "";
-        parentDiv.parentNode.setAttribute(
-            "id",
-            magazine
-                .replace(/[^\w\s]/gi, "")
-                .replace(/\s+/g, "-")
-                .toLowerCase()
-        );
+        parentDiv.parentNode.setAttribute("id", magazine);
 
         let blendWrapper = parentDiv.appendChild(document.createElement("div"));
         blendWrapper.setAttribute("class", "logo-blend-wrapper");
@@ -84,17 +87,11 @@ function createCover() {
     }
 
     function handleSvg(logo, logoColor, magazine, issueMonth) {
-        let logoData = "static/imgs/logos/" + magazine.toLowerCase() + ".svg";
+        let logoData = "static/imgs/logos/" + magazine + ".svg";
 
         let parentDiv = logo.parentNode;
         parentDiv.innerHTML = "";
-        parentDiv.parentNode.setAttribute(
-            "id",
-            magazine
-                .replace(/[^\w\s]/gi, "")
-                .replace(/\s+/g, "-")
-                .toLowerCase()
-        );
+        parentDiv.parentNode.setAttribute("id", magazine);
 
         logo = parentDiv.appendChild(document.createElement("object"));
         logo.setAttribute("type", "image/svg+xml");
