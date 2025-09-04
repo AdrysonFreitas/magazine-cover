@@ -1,5 +1,5 @@
 /* fonts */
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat+Brush&family=DM+Serif+Text:ital@0;1&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Special+Gothic+Condensed+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat+Brush&family=DM+Serif+Text:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Goudy+Bookletter+1911&family=Imbue:opsz,wght@10..100,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Special+Gothic+Condensed+One&display=swap");
 @import url(https://db.onlinewebfonts.com/c/024b66f888ef4264a56e89e2ae320e69?family=Dharma+Gothic+C+W01+Heavy);
 
 #time {
@@ -548,6 +548,183 @@
         font-weight: 100;
         position: absolute;
         bottom: 5%;
+    }
+}
+
+#w {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+
+    .mag-cover-logo {
+        margin: 14px 20px;
+        width: 24%;
+    }
+
+    .mag-cover-text {
+        align-items: flex-start;
+        text-align: start;
+        gap: 1px;
+        line-break: auto;
+        word-wrap: break-word;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        overflow: unset;
+        min-width: 100%;
+        display: flex;
+        position: absolute;
+        top: unset;
+        bottom: 10%;
+        min-height: max-content;
+        flex-direction: column-reverse;
+    }
+
+    .mag-cover-text .text-artist {
+        font-weight: 500;
+        font-size: 72px;
+        line-break: auto;
+        word-break: break-word;
+        line-height: 0.8;
+        min-width: 70%;
+        width: min-content;
+        white-space: normal;
+        text-transform: capitalize;
+        letter-spacing: 0;
+        position: relative;
+        letter-spacing: -3px;
+    }
+
+    .mag-cover-text .text-headline::after {
+        content: "The Fashion Issue";
+        position: absolute;
+        white-space: pre-wrap;
+        width: max-content;
+        font-weight: 100;
+        font-size: 23px;
+        bottom: -34px;
+        right: 26px;
+        text-align: end;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 100;
+        font-size: 56px;
+        white-space: normal;
+        word-break: auto-phrase;
+        line-height: 0.8;
+        min-width: 34%;
+        width: min-content;
+        text-transform: unset;
+        z-index: 2;
+        overflow: visible;
+    }
+
+    .mag-cover-logo span {
+        color: white;
+        text-transform: capitalize;
+        font-size: 10px;
+        font-style: italic;
+        font-weight: 400;
+        position: absolute;
+        top: 0;
+        right: -284%;
+        z-index: 3;
+        text-shadow: 0px 0px 6px black;
+        text-align: end;
+        width: fit-content;
+    }
+}
+
+#gay-times {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+
+    .mag-cover-logo {
+        margin: 0 0 0 0;
+        width: 100%;
+        padding: 1rem 1rem;
+    }
+
+    .mag-cover-text {
+        align-items: flex-end;
+        text-align: center;
+        gap: 0;
+        line-break: auto;
+        word-wrap: break-word;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        overflow: unset;
+        min-width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 16%;
+        top: unset;
+        min-height: max-content;
+    }
+
+    .mag-cover-text .text-artist {
+        font-family: "Goudy Bookletter 1911", serif;
+        font-weight: 900;
+        font-size: 36px;
+        line-break: auto;
+        word-wrap: break-word;
+        word-break: break-word;
+        text-align: start;
+        line-height: 0.7;
+        min-width: 36%;
+        width: min-content;
+        white-space: normal;
+        text-transform: capitalize;
+        position: relative;
+        rotate: 351deg;
+    }
+
+    .mag-cover-text .text-headline {
+        font-weight: 400;
+        font-size: 8px;
+        text-align: center;
+        white-space: normal;
+        word-break: auto-phrase;
+        line-height: 1;
+        min-width: 90%;
+        width: min-content;
+        text-transform: uppercase;
+        z-index: 2;
+        position: absolute;
+        bottom: -60px;
+        left: auto;
+        letter-spacing: 1px;
+    }
+
+    .mag-cover-logo span {
+        color: white;
+        text-transform: uppercase;
+        font-size: 6px;
+        font-weight: 400;
+        position: absolute;
+        bottom: -13px;
+        left: 4%;
+        letter-spacing: 1px;
+        z-index: 3;
+        text-shadow: 0px 0px 6px black;
+        text-align: start;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .mag-cover-logo span::after {
+        content: " \a MUSIC ISSUE";
     }
 }
 

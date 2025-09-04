@@ -118,9 +118,12 @@ function createCover() {
 
         svgPaths.forEach((path) => {
             if (!fixedColorLogos.includes(magazine)) {
-                path.style.fill = "";
-                path.setAttribute("fill", logoColor);
-                path.tagName == "line" ? path.setAttribute("stroke", logoColor) : null;
+                if (!path.classList.contains("no-color")) {
+                    path.style.fill = "";
+                    path.setAttribute("fill", logoColor);
+                    path.tagName == "line" ? path.setAttribute("stroke", logoColor) : null;
+                    magazine == "w" ? ((path.style.stroke = "white"), (path.style.strokeWidth = "14"), (path.style.paintOrder = "stroke")) : null;
+                }
             }
         });
     }
